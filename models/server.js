@@ -43,7 +43,7 @@ class Server {
 
     sockets(){
         this.io.on('connection',socket =>{ // validacion del JWT
-           console.log('cliente conectado', socket.id);
+       //    console.log('cliente conectado', socket.id);
            socket.on('disconnect',() =>{
             console.log('cliente desconectado',socket.id); // id volatiles
            })
@@ -51,7 +51,12 @@ class Server {
 
             //escuchar mensaje
             socket.on('enviar-mensaje',(payload) =>{
-                console.log('enviar mensaje desde el server', payload);
+               // console.log('enviar mensaje desde el server', payload);
+               
+               // enviar mensaje a todos los clientes conectados
+
+               this.io.emit('enviar-mensaje', payload)
+
             })
             
         });

@@ -11,19 +11,19 @@ const socket = io();
 
 //listening events
 socket.on('connect',() =>{
-    console.log('conectado al servidor');
+  //  console.log('conectado al servidor');
     lblOffline.style.display = 'none';
     lblOnline.style.display = '';
     
 })
 
 socket.on('disconnect',() =>{
-    console.log('Desconectado del servidor');
+   // console.log('Desconectado del servidor');
     lblOffline.style.display = '';
     lblOnline.style.display = 'none';
 })
 
-
+//send message all clients connected
 socket.on('enviar-mensaje', (payload) => {
     console.log( payload )
 })
