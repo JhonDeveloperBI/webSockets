@@ -44,13 +44,17 @@ class Server {
     sockets(){
         this.io.on('connection',socket =>{ // validacion del JWT
            console.log('cliente conectado', socket.id);
-
            socket.on('disconnect',() =>{
             console.log('cliente desconectado',socket.id); // id volatiles
            })
           // return socket.disconect();
-        });
 
+            //escuchar mensaje
+            socket.on('enviar-mensaje',(payload) =>{
+                console.log('enviar mensaje desde el server', payload);
+            })
+            
+        });
     }
 
     listen() {
