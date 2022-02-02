@@ -16,6 +16,10 @@ class Server {
 
         // Rutas de mi aplicación
         this.routes();
+
+        //sockets
+        this.sockets();
+
     }
 
     async conectarDB() {
@@ -35,6 +39,18 @@ class Server {
 
     routes() {
         
+    }
+
+    sockets(){
+        this.io.on('connection',socket =>{ // validacion del JWT
+           console.log('cliente conectado', socket.id);
+
+           socket.on('disconnect',() =>{
+            console.log('cliente desconectado',socket.id); // id volatiles
+           })
+          // return socket.disconect();
+        });
+
     }
 
     listen() {
