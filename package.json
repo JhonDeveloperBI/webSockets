@@ -1,5 +1,5 @@
 {
-  "name": "websockets",
+  "name": "websockets-colas",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
