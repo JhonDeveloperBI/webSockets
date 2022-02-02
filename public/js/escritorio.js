@@ -31,6 +31,7 @@ socket.on('disconnect', () => {
     btnAtender.disabled = true;
 });
 
+//tickets pendientes
 socket.on('tickets-pendientes', ( pendientes ) => {
     if ( pendientes === 0 ) {
         lblPendientes.style.display = 'none';
